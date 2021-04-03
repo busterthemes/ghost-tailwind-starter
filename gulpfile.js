@@ -9,6 +9,7 @@ var uglify = require('gulp-uglify');
 var beeper = require('beeper');
 
 // postcss plugins
+var tailwindcss = require('tailwindcss');
 var autoprefixer = require('autoprefixer');
 var colorFunction = require('postcss-color-mod-function');
 var cssnano = require('cssnano');
@@ -39,6 +40,7 @@ function css(done) {
     var processors = [
         easyimport,
         colorFunction(),
+        tailwindcss(),
         autoprefixer(),
         cssnano()
     ];
@@ -76,9 +78,9 @@ function zipper(done) {
     ], handleError(done));
 }
 
-const cssWatcher = () => watch('assets/css/**', css);
+const cssWatcher = () => watch(['assets/css/*.css', 'assets/css/buster/*.css'], css);
 const hbsWatcher = () => watch(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
-const watcher = parallel(cssWatcher, hbsWatcher);
+const watcher = parallel(cssWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);
 

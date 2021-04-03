@@ -83,5 +83,9 @@
                 "width": 2000
             }
         }
+    },
+    "dependencies": {
+        "@tailwindcss/typography": "^0.4.0",
+        "tailwindcss": "^2.0.4"
     }
 }

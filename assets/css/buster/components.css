@@ -1,0 +1,46 @@
+@layer components {
+    .bt-head-menu .nav {
+      @apply inline-flex flex-wrap items-center list-none;
+    }
+
+    .bt-head-menu .nav li {
+        @apply p-0 m-0 mr-0.5;
+    }
+
+    .bt-head-menu .nav a {
+        @apply block p-0 ml-5 no-underline;
+
+    }
+    
+    .bt-head-menu .nav-current a { 
+        /* box-shadow: 0 -1px 0 0 currentcolor inset; */
+    }
+
+    #bt-mobile-menu .nav li {
+        @apply p-0 m-0 text-center;
+    }
+
+    #bt-mobile-menu .nav a {
+        @apply block px-5 py-2 no-underline;
+
+    }
+
+
+    .bt-footer-menu .nav {
+        @apply inline-flex flex-wrap items-center list-none;
+      }
+  
+    .bt-footer-menu .nav li {
+        @apply p-0 m-0 mr-0.5;
+    }
+
+    .bt-footer-menu .nav a {
+        @apply block p-0 ml-5;
+
+    }
+    
+    .bt-footer-menu .nav-current a { 
+        /* box-shadow: 0 -1px 0 0 currentcolor inset; */
+    }
+
+  }
