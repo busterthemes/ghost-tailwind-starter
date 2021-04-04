@@ -1,7 +1,8 @@
 module.exports = {
-    purge: [
-        './*.hbs',
-    ],
+    purge: {
+        enabled: true,
+        content: ['./**/*.hbs'],
+    },
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {},
