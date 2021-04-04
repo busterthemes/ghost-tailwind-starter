@@ -1,6 +1,6 @@
-# Ghost Starter Theme
+# Ghost Tailwind Starter Theme
 
-A starter framework for Ghost themes! Fork this repository and start your development here with all the main things you need to develop a custom Ghost theme.
+A starter tailwind css framework for Ghost themes! Fork this repository and start your development here with all the main things you need to develop a custom Ghost theme. I used the official Ghost starter as a base and removed all the gh-** styles and replaced with Tailwind CSS. I changed the templates a bit as well and re-did the toolbar / header. I moved header, main, footer and fotter scripts into partials.
 
 &nbsp;
 
