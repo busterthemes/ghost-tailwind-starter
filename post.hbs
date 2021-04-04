@@ -2,61 +2,72 @@
 
 {{#post}}
 
-<article class="{{post_class}}">
+<div class="container mx-auto p-4">
 
-    <header>
-        <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
-        <h1>{{title}}</h1>
+    <div class="flex flex-col items-center">
 
-        {{#if custom_excerpt}}
-        <p>{{custom_excerpt}}</p>
-        {{/if}}
+        <article class="{{post_class}} w-full sm:max-w-5xl py-4">
+            {{#if feature_image}}
+                <img
+                    srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 600w,
+                            {{img_url feature_image size="l"}} 1000w,
+                            {{img_url feature_image size="xl"}} 2000w"
+                    sizes="(max-width: 1000px) 400px, 700px"
+                    src="{{img_url feature_image size="m"}}"
+                    alt="{{title}}"
+                    class="w-full"
+                />
+            {{/if}}
+            <div>
+                <div class="text-center pt-4 text-gray-500 font-light"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</div>
+                <h2 class="text-center text-3xl font-bold py-2">{{title}}</h2>
+                <div class="bt-content text-center py-2">{{content}}</div>
+            </div>
 
-        {{#if feature_image}}
-        <img
-            srcset="{{img_url feature_image size="s"}} 300w,
-                    {{img_url feature_image size="m"}} 600w,
-                    {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-            sizes="(max-width: 1000px) 1000px, 2000px"
-            loading="lazy"
-            src="{{img_url feature_image size="xl"}}"
-            alt="{{title}}"
-        />
-        {{/if}}
-    </header>
+            <footer>
 
-    <div>
-        {{content}}
+                <div>
+                    Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
+                </div>
+
+                {{!--
+                <section class="gh-post-comments">
+                    If you want to embed comments, this is a good place to do it!
+                </section>
+                --}}
+
+            </footer>
+
+        </article>
+
+        <aside class="flex flex-row w-full sm:max-w-5xl py-16">
+
+            <div class="flex flex-grow items-center justify-start">
+                {{#next_post}}
+                <div class="bt-nav-arrow pr-2">{{> "icons/arrow-left"}}</div>
+                <div>
+                    <a class="no-underline" href="{{url}}">
+                        <h4 class="text-1xl md:text-2xl font-semibold">{{title}}</h4>
+                    </a>
+                </div>
+                {{/next_post}}
+            </div>
+
+            <div class="flex flex-grow items-center justify-end">
+                {{#prev_post}}
+                <div>
+                    <a class="no-underline" href="{{url}}">
+                    <h4 class="text-1xl md:text-2xl font-semibold">{{title}}</h4>
+                    </a>
+                </div>
+                <div class="bt-nav-arrow pl-2">{{> "icons/arrow-right"}}</div>
+                {{/prev_post}}
+            </div>
+        </aside>
+
     </div>
 
-    <footer>
-
-        <div>
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
-        </div>
-
-        {{!--
-        <section class="gh-post-comments">
-            If you want to embed comments, this is a good place to do it!
-        </section>
-        --}}
-
-    </footer>
-
-</article>
-
-<aside>
-    <div>
-        <div>
-            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
-        </div>
-        <div>
-            {{#prev_post}}<a href="{{url}}">
-                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
-            </a>{{/prev_post}}
-        </div>
-    </div>
-</aside>
+</div>
 
 {{/post}}

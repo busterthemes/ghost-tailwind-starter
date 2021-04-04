@@ -1,21 +1,23 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="gh-container">
+<div class="container mx-auto p-4">
+
+    <div class="flex flex-col items-center">
 
         {{#author}}
-        <header class="gh-page-head">
+        <header class="flex flex-col items-center py-4 ">
             {{#if profile_image}}
-                <img class="gh-author-image" src="{{profile_image}}" alt="{{name}}" />
+                <img class="h-20 w-20 rounded-full mx-auto" src="{{profile_image}}" alt="{{name}}" />
             {{/if}}
 
-            <h1>{{name}}</h1>
+            <h1 class="text-4xl font-bold text-center py-2">{{name}}</h1>
+
             {{#if bio}}
-                <p>{{bio}}</p>
+                <p class="text-gray-500">{{bio}}</p>
             {{/if}}
 
-            <div class="gh-author-meta">
-                <div class="gh-author-links">
+            <div class="bt-author-meta">
+                <div class="bt-author-links">
                     {{#if website}}
                         <a href="{{website}}" target="_blank" rel="noopener">Website</a>
                     {{/if}}
@@ -29,12 +31,12 @@
             </div>
 
             {{#if cover_image}}
-                <img class="gh-page-image" src="{{cover_image}}" alt="{{name}}" />
+                <img src="{{cover_image}}" alt="{{name}}" />
             {{/if}}
         </header>
         {{/author}}
 
-        <div class="gh-postfeed">
+        <div class="bt-postfeed">
         {{#foreach posts}}
 
             {{> "card"}} {{!-- partials/card.hbs --}}

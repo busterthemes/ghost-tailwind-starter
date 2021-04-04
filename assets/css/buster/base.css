@@ -3,4 +3,8 @@
         @apply underline;
     }
 
+    p {
+        @apply py-2;
+    }
+
 }

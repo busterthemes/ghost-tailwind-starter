@@ -1,23 +1,31 @@
 {{!< default}}
 
-{{#post}}
-<article class="{{post_class}}">
+<div class="container mx-auto p-4">
 
-    <header>
-        <h1>{{title}}</h1>
+    <div class="flex flex-col items-center">
 
-        {{#if custom_excerpt}}
-            <p>{{custom_excerpt}}</p>
-        {{/if}}
+    {{#post}}
+    <article class="{{post_class}} w-full sm:max-w-5xl py-4">
 
-        {{#if feature_image}}
-            <img src="{{feature_image}}" alt="{{title}}" />
-        {{/if}}
-    </header>
+        <header class="text-center">
+            <h1 class="text-3xl font-bold py-4">{{title}}</h1>
 
-    <div>
-        {{content}}
+            {{#if custom_excerpt}}
+                <p class="bt-content py-2">{{custom_excerpt}}</p>
+            {{/if}}
+
+            {{#if feature_image}}
+                <img src="{{feature_image}}" alt="{{title}}" />
+            {{/if}}
+        </header>
+
+        <div>
+            {{content}}
+        </div>
+
+    </article>
+    {{/post}}
+
     </div>
+</div>
 
-</article>
-{{/post}}

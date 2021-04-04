@@ -1,8 +1,5 @@
-{{!--
-Re-usable card for linking to posts
---}}
-
-<article class="{{post_class}} w-full sm:max-w-4xl py-4">
+{{!-- Re-usable card for linking to posts --}}
+<article class="{{post_class}} w-full sm:max-w-5xl py-4">
     {{#if feature_image}}
         <img
             srcset="{{img_url feature_image size="s"}} 300w,
@@ -19,6 +16,6 @@ Re-usable card for linking to posts
         <div class="text-center pt-4 text-gray-500 font-light"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</div>
         <h2 class="text-center text-3xl font-bold py-2">{{title}}</h2>
         <p class="text-center py-2">{{excerpt}}</p>
-        <a href="{{url}}" class="block text-center py-2"><strong>Read more</strong></a>
+        <a href="{{url}}" class="block text-center py-2 text-gray-500"><strong>Read More</strong></a>
     </div>
 </article>
