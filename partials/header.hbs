@@ -1,54 +1,73 @@
-<header class="bg-white border-t-0 border-r-0 border-l-0 border border-gray-100">
+<header class="border-t-0 border-r-0 border-l-0 border border-gray-100">
 
-    <div class="md:container md:mx-auto flex flex-row p-4">
+    <div class="max-w-6xl mx-auto px-4">
 
-        <div class="hidden md:flex items-center">
-            <a href="/" class="no-underline">
-                <span class="sr-only">{{@site.title}}</span>
-                {{#if @site.logo}}
-                    <img class="w-auto h-5" src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    <div class="text-2xl font-bold">{{@site.title}}</div>
-                {{/if}}
+        <div class="flex justify-between">
 
-            </a>
-        </div>
+        
+            <div class="flex space-x-4">
+                <!-- logo -->
+                <div>
+                    <a href="/" class="flex items-center py-5 px-2 no-underline">
+                        <span class="sr-only">{{@site.title}}</span>
+                        {{#if @site.logo}}
+                            <img class="w-auto h-5" src="{{@site.logo}}" alt="{{@site.title}}" />
+                        {{else}}
+                            <div class="text-2xl font-bold">{{@site.title}}</div>
+                        {{/if}}
 
-        <div class="md:hidden flex items-center">
-            <button type="button" class="bt-burger bg-white rounded-md inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-            <span class="sr-only">Open menu</span>
-            <!-- Heroicon name: outline/menu -->
-            <svg class="h-9 w-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            </button>
-        </div>
+                    </a>
+                </div>
 
-        <div class="flex flex-grow items-center">
-            <nav class="bt-head-menu hidden md:flex">
-                    {{navigation}}
-            </nav>
-        </div>
+                <!-- primary nav -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <nav class="bt-head-menu hidden md:flex">
+                        {{navigation}}
+                    </nav>
+                </div>
+            </div>
 
-        <div class="flex items-center">
-            <div class="flex items-center">
+            <!-- secondary nav -->
+            <div class="hidden md:flex items-center space-x-2">
+        
                 {{#if @site.facebook}}
                 <a class="h-7 w-7" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
                 {{/if}}
                 {{#if @site.twitter}}
-                <a class="h-7 w-7 ml-4" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                <a class="h-7 w-7" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
                 {{/if}}
-                <a class="h-7 w-7 ml-4" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+                <a class="h-7 w-7" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+        
+            </div>
+
+            <!-- mobile button goes here -->
+            <div class="md:hidden flex items-center">
+                <button class="bt-burger">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                </button>
+            </div>
+
             </div>
         </div>
 
-
-    </div>
-
-    <div id="bt-mobile-menu" class="hidden md:hidden">
-        <div>
+        <!-- mobile menu -->
+        <div id="bt-mobile-menu" class="hidden md:hidden">
             {{navigation}}
+
+                       <!-- secondary nav -->
+            <div class="flex items-center space-x-2 justify-center py-8">
+        
+                {{#if @site.facebook}}
+                <a class="h-7 w-7" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                {{/if}}
+                {{#if @site.twitter}}
+                <a class="h-7 w-7" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                {{/if}}
+                <a class="h-7 w-7" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+        
+            </div>
         </div>
-    </div>
         
 </header>
